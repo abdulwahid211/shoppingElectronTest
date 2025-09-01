@@ -16,7 +16,7 @@ export class ElectronApp {
     return this.win;
   }
 
-  async closeAsync() {
+  async close() {
     if (this.win)
       await this.win.close({ runBeforeUnload: true }).catch((e) => {
         console.log('Window failed to close' + e);

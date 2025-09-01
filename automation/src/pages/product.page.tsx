@@ -26,6 +26,10 @@ export class ProductPage extends BasePage {
     'cart-row-sku-stickers'
   );
 
+  async expectProductStickerPack(title: string) {
+    await expect(this.productStickerPackText).toHaveText(title);
+  }
+
   async selectStickerPactItem() {
     await this.productStickerPackAddButton.click();
   }

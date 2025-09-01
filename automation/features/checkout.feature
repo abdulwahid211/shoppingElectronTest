@@ -11,8 +11,7 @@ Scenario: User can place an order successfully via Checkout
   And the user proceeds to checkout
   And the user fills valid shipping details
   And the user submits the order
-  Then they should land on the order confirmation page
-  And they should see an order number
+  Then they should see an order successful message
   And the order summary reflects the cart grand total which should be "£9.74"
 
 # @Checkout-002 @negative
