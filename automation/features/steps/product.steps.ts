@@ -16,9 +16,6 @@ Then('the user proceeds to checkout', async function () {
   await this.product.goToCheckOutPage();
 });
 
-Then(
-  'the user should see the grand total to be {string}',
-  async function (total: string) {
-    return this.product.expectCartGrandTotal(total);
-  }
-);
+Then('the user should see the grand total to be {string}', async function (total: string) {
+  return this.product.expectCartGrandTotal(total);
+});
