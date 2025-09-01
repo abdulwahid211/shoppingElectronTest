@@ -1,29 +1,38 @@
 import { Given, When, Then, AfterAll } from '@cucumber/cucumber';
 import { chromium, Browser, Page } from 'playwright';
-import assert from 'assert';
 
-let browser: Browser;
-let page: Page;
+import path from 'path';
+import {
+  test,
+  expect,
+  _electron as electron,
+  ElectronApplication,
+} from '@playwright/test';
+import { assert } from 'console';
 
-Given('I open the Google homepage', async function () {
-  browser = await chromium.launch({ headless: false });
-  page = await browser.newPage();
-  await page.goto('https://www.google.com');
+let app: ElectronApplication; // <-- declare it
+let win: Page;
+
+Given('a product {string} is in stock', async (s: string) => {
+  const entry = path.resolve(process.cwd(), '../shopping-electron/app/main.js');
+
+  app = await electron.launch({ args: [entry] });
+  win = await app.firstWindow();
+  await win.waitForLoadState('domcontentloaded');
 });
 
-When('I search for {string}', async function (searchQuery: string) {
-  await page.fill("input[name='q']", searchQuery);
-  await page.press("input[name='q']", 'Enter');
+When('apple is red', async () => {
+  await win.getByTestId('go-checkout').click(); 
 });
 
-Then(
-  'I should see results related to {string}',
-  async function (expected: string) {
-    const content = await page.textContent('body');
-    assert(content && content.includes(expected));
-  }
-);
+Then('it should work', async () => {
+  const actualText = await win.locator('#summary-items').allInnerTexts();
+  await expect(actualText).toEqual(['Your cart is empty.']);
+});
 
 AfterAll(async () => {
-  await browser.close();
+  await win.close();
+  await app.close();
 });
+
+/// to run npx cucumber-js
