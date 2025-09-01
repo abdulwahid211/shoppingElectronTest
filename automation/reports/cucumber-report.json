@@ -1,0 +1,64 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "google-search;search-playwright-on-google",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "Search Playwright on Google",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "I open the Google homepage",
+            "match": {
+              "location": "file:/Users/abdulwahid/Projects/shoppingElectronTest/automation/steps/checkout.steps.ts:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2511787416
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 5,
+            "name": "I search for \"Playwright\"",
+            "match": {
+              "location": "file:/Users/abdulwahid/Projects/shoppingElectronTest/automation/steps/checkout.steps.ts:14"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 5001866832,
+              "error_message": "Error: function timed out, ensure the promise resolves within 5000 milliseconds\n    at Timeout.<anonymous> (/Users/abdulwahid/Projects/shoppingElectronTest/automation/node_modules/@cucumber/cucumber/src/time.ts:52:14)\n    at listOnTimeout (node:internal/timers:614:17)\n    at processTimers (node:internal/timers:549:7)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 6,
+            "name": "I should see results related to \"Playwright\"",
+            "match": {
+              "location": "file:/Users/abdulwahid/Projects/shoppingElectronTest/automation/steps/checkout.steps.ts:19"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "google-search",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Google Search",
+    "tags": [],
+    "uri": "features/checkout.feature"
+  }
+]
