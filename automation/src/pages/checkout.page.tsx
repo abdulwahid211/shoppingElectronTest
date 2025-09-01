@@ -36,4 +36,7 @@ export class CheckoutPage extends BasePage {
       'Order placed! Reference:'
     );
   }
+  async expectCheckOutGrandTotal(total: string) {
+    await expect(this.checkOutGrandTotal).toContainText(total);
+  }
 }

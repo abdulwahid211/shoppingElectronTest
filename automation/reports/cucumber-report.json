@@ -1,0 +1,160 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "checkout;user-can-place-an-order-successfully-via-checkout",
+        "keyword": "Scenario",
+        "line": 8,
+        "name": "User can place an order successfully via Checkout",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "a product \"Sticker Pack\" is in stock",
+            "match": {
+              "location": "file:/Users/abdulwahid/Projects/shoppingElectronTest/automation/features/steps/product.steps.ts:3"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 495542,
+              "error_message": "TypeError: Cannot read properties of undefined (reading 'expectProductStickerPack')\n    at World.<anonymous> (file:///Users/abdulwahid/Projects/shoppingElectronTest/automation/features/steps/product.steps.ts:4:22)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 6,
+            "name": "the user has added the product to the cart",
+            "match": {
+              "location": "file:/Users/abdulwahid/Projects/shoppingElectronTest/automation/features/steps/product.steps.ts:7"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 9,
+            "name": "the user reviews the cart",
+            "match": {
+              "location": "file:/Users/abdulwahid/Projects/shoppingElectronTest/automation/features/steps/product.steps.ts:11"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 10,
+            "name": "the user should see the grand total to be \"£9.74\"",
+            "match": {
+              "location": "file:/Users/abdulwahid/Projects/shoppingElectronTest/automation/features/steps/product.steps.ts:19"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "the user proceeds to checkout",
+            "match": {
+              "location": "file:/Users/abdulwahid/Projects/shoppingElectronTest/automation/features/steps/product.steps.ts:15"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 12,
+            "name": "the user fills valid shipping details",
+            "match": {
+              "location": "file:/Users/abdulwahid/Projects/shoppingElectronTest/automation/features/steps/checkout.steps.ts:7"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 13,
+            "name": "the user submits the order",
+            "match": {
+              "location": "file:/Users/abdulwahid/Projects/shoppingElectronTest/automation/features/steps/checkout.steps.ts:3"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 14,
+            "name": "they should see an order successful message",
+            "match": {
+              "location": "file:/Users/abdulwahid/Projects/shoppingElectronTest/automation/features/steps/checkout.steps.ts:11"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "the order summary reflects the cart grand total which should be \"£9.74\"",
+            "match": {
+              "location": "file:/Users/abdulwahid/Projects/shoppingElectronTest/automation/features/steps/checkout.steps.ts:15"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@Checkout-001",
+            "line": 1
+          },
+          {
+            "name": "@happy",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "checkout",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "Checkout",
+    "tags": [
+      {
+        "name": "@Checkout-001",
+        "line": 1
+      },
+      {
+        "name": "@happy",
+        "line": 1
+      }
+    ],
+    "uri": "features/checkout.feature"
+  }
+]
