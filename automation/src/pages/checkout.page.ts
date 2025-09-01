@@ -3,25 +3,26 @@ import { BasePage } from '../helper/base-page';
 
 export class CheckoutPage extends BasePage {
   readonly placeOrderButton: Locator = this.getByTestId('place-order');
-
   readonly checkOutGrandTotal: Locator = this.getByTestId('sum-grand');
-
-  readonly successfulOrderConfirmationText: Locator =
-    this.getByTestId('order-success');
-
+  readonly orderSuccess: Locator = this.getByTestId('order-success');
   readonly fullNameField: Locator = this.getByTestId('chk-name');
   readonly emailField: Locator = this.getByTestId('chk-email');
   readonly addressField: Locator = this.getByTestId('chk-address');
   readonly cityField: Locator = this.getByTestId('chk-city');
   readonly postcodeField: Locator = this.getByTestId('chk-postcode');
-
-  readonly emailError: Locator = this.page.getByText(
-    'A valid email is required'
-  );
+  readonly emailError: Locator = this.page.getByText('A valid email is required');
 
   async fillAllValidCheckoutDetails() {
     await this.fullNameField.fill('Abdul Wahid');
     await this.emailField.fill('abdulwahid211@gmail.com');
+    await this.addressField.fill('123 Main St');
+    await this.cityField.fill('London');
+    await this.postcodeField.fill('12345');
+  }
+
+  async fillAllValidCheckoutDetailsExceptEmail(invalidEmail: string) {
+    await this.fullNameField.fill('Abdul Wahid');
+    await this.emailField.fill(invalidEmail);
     await this.addressField.fill('123 Main St');
     await this.cityField.fill('London');
     await this.postcodeField.fill('12345');
@@ -32,11 +33,17 @@ export class CheckoutPage extends BasePage {
   }
 
   async expectOrderSuccessfulMessage() {
-    await expect(this.successfulOrderConfirmationText).toContainText(
-      'Order placed! Reference:'
-    );
+    await this.verifyText(this.orderSuccess, /Order placed!\s*Reference:/i);
+  }
+
+  async expectNoOrderSuccessfulMessage() {
+    await this.verifyNotExist(this.orderSuccess);
+  }
+
+  async expectInvalidErrorMessage(message: string) {
+    await this.verifyText(this.emailError, message);
   }
   async expectCheckOutGrandTotal(total: string) {
-    await expect(this.checkOutGrandTotal).toContainText(total);
+    await this.verifyText(this.checkOutGrandTotal, new RegExp(total, 'i'));
   }
 }

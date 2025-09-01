@@ -7,8 +7,14 @@ export class BasePage {
     this.page = page;
   }
 
-  async verifyText(selector: string, text: string) {
-    await expect(this.page.locator(selector)).toContainText(text);
+  async verifyText(selector: Locator, text: string | RegExp, timeout = 15000) {
+    const element = selector.first();
+    await element.waitFor({ state: 'visible', timeout });
+    await expect(element).toContainText(text, { timeout });
+  }
+
+  async verifyNotExist(selector: Locator, timeout = 5000) {
+    await expect(selector).toHaveCount(0, { timeout });
   }
 
   getByTestId(id: string): Locator {

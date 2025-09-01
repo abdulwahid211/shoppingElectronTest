@@ -14,10 +14,11 @@ Scenario: User can place an order successfully via Checkout
   Then they should see an order successful message
   And the order summary reflects the cart grand total which should be "£9.74"
 
-# @Checkout-002 @negative
-# Scenario: User cannot place an order with invalid email
-#   When the user proceeds to checkout
-#   And the user fills shipping details with email "user211"
-#   And the user submits the order
-#   Then they should see the error message "A valid email is required"
-#   And the order should not be submitted
+@Checkout-002 @negative
+Scenario: User cannot place an order with invalid email
+  When the user reviews the cart
+  And the user proceeds to checkout
+  And the user fills the shipping form with all valid details except an invalid email "user211"
+  And the user submits the order
+  Then they should see the error message "A valid email is required"
+  And the order should not be submitted

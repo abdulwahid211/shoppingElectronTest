@@ -14,7 +14,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 879743833
+              "duration": 715769250
             }
           },
           {
@@ -27,7 +27,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 26936333
+              "duration": 25295832
             }
           },
           {
@@ -39,9 +39,8 @@
               "location": "features/steps/product.steps.ts:7"
             },
             "result": {
-              "status": "failed",
-              "duration": 139290,
-              "error_message": "TypeError: this.product.selectStickerPackItem is not a function\n    at TestContextWorld.<anonymous> (/Users/abdulwahid/Projects/shoppingElectronTest/automation/features/steps/product.steps.ts:8:22)"
+              "status": "passed",
+              "duration": 29197750
             }
           },
           {
@@ -53,8 +52,8 @@
               "location": "features/steps/product.steps.ts:11"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 4042541
             }
           },
           {
@@ -66,8 +65,8 @@
               "location": "features/steps/product.steps.ts:19"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 2831584
             }
           },
           {
@@ -79,8 +78,8 @@
               "location": "features/steps/product.steps.ts:15"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 18673624
             }
           },
           {
@@ -92,8 +91,8 @@
               "location": "features/steps/checkout.steps.ts:7"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 67475416
             }
           },
           {
@@ -105,8 +104,8 @@
               "location": "features/steps/checkout.steps.ts:3"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 91442874
             }
           },
           {
@@ -118,8 +117,8 @@
               "location": "features/steps/checkout.steps.ts:11"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 17712917
             }
           },
           {
@@ -131,8 +130,9 @@
               "location": "features/steps/checkout.steps.ts:15"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "failed",
+              "duration": 5001450875,
+              "error_message": "Error: function timed out, ensure the promise resolves within 5000 milliseconds\n    at Timeout.<anonymous> (/Users/abdulwahid/Projects/shoppingElectronTest/automation/node_modules/@cucumber/cucumber/src/time.ts:52:14)\n    at listOnTimeout (node:internal/timers:614:17)\n    at processTimers (node:internal/timers:549:7)"
             }
           },
           {
@@ -140,7 +140,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 61192834
+              "duration": 46158500
             }
           }
         ],
@@ -152,6 +152,154 @@
           {
             "name": "@happy",
             "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "checkout;user-cannot-place-an-order-with-invalid-email",
+        "keyword": "Scenario",
+        "line": 18,
+        "name": "User cannot place an order with invalid email",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 301269874
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "a product \"Sticker Pack\" is in stock",
+            "match": {
+              "location": "features/steps/product.steps.ts:3"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 14594458
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 6,
+            "name": "the user has added the product to the cart",
+            "match": {
+              "location": "features/steps/product.steps.ts:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 14560709
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 19,
+            "name": "the user reviews the cart",
+            "match": {
+              "location": "features/steps/product.steps.ts:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2486958
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 20,
+            "name": "the user proceeds to checkout",
+            "match": {
+              "location": "features/steps/product.steps.ts:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 25872999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 21,
+            "name": "the user fills the shipping form with all valid details except an invalid email \"user211\"",
+            "match": {
+              "location": "features/steps/checkout.steps.ts:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 62296707
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 22,
+            "name": "the user submits the order",
+            "match": {
+              "location": "features/steps/checkout.steps.ts:3"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 23629458
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 23,
+            "name": "they should see the error message \"A valid email is required\"",
+            "match": {
+              "location": "features/steps/checkout.steps.ts:29"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3309207
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 24,
+            "name": "the order should not be submitted",
+            "match": {
+              "location": "features/steps/checkout.steps.ts:33"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 58792
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 43674624
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@Checkout-001",
+            "line": 1
+          },
+          {
+            "name": "@happy",
+            "line": 1
+          },
+          {
+            "name": "@Checkout-002",
+            "line": 17
+          },
+          {
+            "name": "@negative",
+            "line": 17
           }
         ],
         "type": "scenario"

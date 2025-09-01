@@ -1,4 +1,4 @@
-import { Then } from '@cucumber/cucumber';
+import { Then, When } from '@cucumber/cucumber';
 
 Then('the user submits the order', async function () {
   await this.checkout.submitOrder();
@@ -18,3 +18,18 @@ Then(
     await this.checkout.expectCheckOutGrandTotal(total);
   }
 );
+
+When(
+  'the user fills the shipping form with all valid details except an invalid email {string}',
+  async function (email: string) {
+    await this.checkout.fillAllValidCheckoutDetailsExceptEmail(email);
+  }
+);
+
+Then('they should see the error message {string}', async function (message: string) {
+  await this.checkout.expectInvalidErrorMessage(message);
+});
+
+Then('the order should not be submitted', async function () {
+  // Write code here that turns the phrase above into concrete actions
+});

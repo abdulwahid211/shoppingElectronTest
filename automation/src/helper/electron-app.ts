@@ -9,7 +9,9 @@ export class ElectronApp {
 
   async launch(relativeMain = this.electronAppMainFilePath) {
     const entry = path.resolve(process.cwd(), relativeMain);
-    this.app = await electron.launch({ args: [entry] });
+    this.app = await electron.launch({
+      args: [entry],
+    });
     this.win = await this.app.firstWindow();
     await this.win.waitForLoadState('domcontentloaded');
     await this.win.bringToFront();

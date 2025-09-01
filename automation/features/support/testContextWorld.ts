@@ -23,6 +23,7 @@ export class TestContextWorld extends World {
 
   async dispose() {
     if (this.app) await this.app.close();
+    if (this.page) await this.page.close().catch(() => {});
   }
 }
 
